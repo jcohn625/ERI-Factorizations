@@ -13,7 +13,10 @@ from factorize_opt import *
 from pyscf import gto,scf,ao2mo
 from mol_obj import *
 
-
+# Define molecule with pyscf
+n=10
+dx=2.0 # atom spacing
+basis = 'sto-6g'
 mol = gto.Mole()
 HL = []
 for j in range(n):
@@ -25,8 +28,6 @@ else:
     mol.basis = basis
 #mol.basis = '6-31g'
 mol.build()
-mf = scf.RHF(mol)
-mf.kernel()
 
 ints=RHFIntegrals(mol)
 ints.build() # Container for molecular properites
