@@ -37,7 +37,7 @@ ints.build() # Container for molecular properites
 U_xdf,Z_xdf= XDF(ints.eri)
 
 # CDF
-system={'ecore':ints.e_nuc,'h1':ints.h1[:10,:10],'eri':ints.eri,'NA':ints.nelec[0],'NB':ints.nelec[1]}
+system={'ecore':ints.e_nuc,'h1':ints.h1,'eri':ints.eri,'NA':ints.nelec[0],'NB':ints.nelec[1]}
 eri_cdf=CDF(system)
 eri_cdf.initial_guess(ndf=4, B=False) # ndf = number of layers or stages, used the first ndf layers of XDF calculation as initial guess
 # B=False means set block invariant option in optimization to False. I don't find it help must for CDF
